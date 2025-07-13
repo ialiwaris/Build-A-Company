@@ -17,7 +17,7 @@ This document outlines the structure and segmentation of a secure enterprise net
 | Zone Name         | VLAN ID | Subnet           | Purpose                                 |
 |-------------------|---------|------------------|-----------------------------------------|
 | Production        | v10     | 10.204.10.0/24   | Core business apps and internal services|
-| Monitoring        | v11     | 10.204.11.0/24   | Tools like Zabbix, Grafana, log analyzers|
+| Monitoring        | v11     | 10.204.11.0/24   | Tools like Grafana, log analyzers|
 | Storage           | v12     | 10.204.12.0/24   | Backup systems, file storage            |
 | Management        | v13     | 10.204.13.0/24   | Admin access: SSH, RDP, AD, syslog      |
 | Servers (General) | v14     | 10.204.14.0/24   | Internal service nodes (e.g. DNS, DHCP) |
@@ -30,7 +30,7 @@ This document outlines the structure and segmentation of a secure enterprise net
 | Source Zone | Destination Zone | Allowed Services                                 |
 |-------------|------------------|-------------------------------------------------|
 | Management  | All Zones        | SSH, RDP, WinRM (admin ports only)              |
-| Monitoring  | All Zones        | SNMP, ICMP, Syslog                              |
+| Monitoring  | All Zones        |  ICMP, Syslog                              |
 | DMZ         | Internet         | HTTP/HTTPS only                                 |
 | Servers     | Specific Zones   | Based on role (e.g., DNS, DHCP)                 |
 | Storage     | None             | No outbound access (inbound from Prod only)     |
@@ -65,5 +65,5 @@ All zones are trunked over VLAN-aware switches and terminated at a firewall for 
 
 ---
 
-✅ Designed for security, visibility, and scalability. No sensitive user or system data is stored in this repo.
+✅ Designed for security, visibility, and scalability.
 
